@@ -56,3 +56,5 @@ config :minqa_api, MinqaApi.Repo,
   database: "minqa_api_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "dev.secret.exs"

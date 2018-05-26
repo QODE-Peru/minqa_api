@@ -1,5 +1,5 @@
 defmodule MinqaApi.Auth.Guardian do
-  use Guardian, otp_app: :minq_api
+  use Guardian, otp_app: :minqa_api
 
   alias MinqaApi.Auth
   alias MinqaApi.Auth.Aplicacion
