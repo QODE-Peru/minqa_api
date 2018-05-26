@@ -22,9 +22,9 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-config :minqa_api, MinqaApi.Auth.AccessPipeline,
+config :minqa_api, MinqaApi.Auth.AccessHtmlPipeline,
   module: MinqaApi.Auth.Guardian,
-  error_handler: MinqaApi.Auth.AccessPipeline.ErrorHandler
+  error_handler: MinqaApi.Auth.AccessHtmlPipeline.ErrorHandler
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

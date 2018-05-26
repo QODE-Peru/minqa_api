@@ -14,7 +14,7 @@ defmodule MinqaApiWeb.Router do
   end
 
   pipeline :auth do
-    plug MinqaApi.Auth.AccessPipeline
+    plug MinqaApi.Auth.AccessHtmlPipeline
   end
 
   pipeline :ensure_auth do
@@ -37,7 +37,10 @@ defmodule MinqaApiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MinqaApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", MinqaApiWeb do
+    pipe_through :api
+
+    resources "/api", ApiController, except: [:new, :edit]
+    post "/token", SessionApiController, :create
+  end
 end

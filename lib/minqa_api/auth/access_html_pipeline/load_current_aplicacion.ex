@@ -1,4 +1,4 @@
-defmodule MinqaApi.Auth.AccessPipeline.LoadCurrentAplicacion do
+defmodule MinqaApi.Auth.AccessHtmlPipeline.LoadCurrentAplicacion do
   import Plug.Conn
   alias MinqaApi.Auth.Guardian
 

@@ -64,4 +64,64 @@ defmodule MinqaApi.AuthTest do
       assert %Ecto.Changeset{} = Auth.change_aplicacion(aplicacion)
     end
   end
+
+  describe "api" do
+    alias MinqaApi.Auth.Api
+
+    @valid_attrs %{name: "some name"}
+    @update_attrs %{name: "some updated name"}
+    @invalid_attrs %{name: nil}
+
+    def api_fixture(attrs \\ %{}) do
+      {:ok, api} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Auth.create_api()
+
+      api
+    end
+
+    test "list_api/0 returns all api" do
+      api = api_fixture()
+      assert Auth.list_api() == [api]
+    end
+
+    test "get_api!/1 returns the api with given id" do
+      api = api_fixture()
+      assert Auth.get_api!(api.id) == api
+    end
+
+    test "create_api/1 with valid data creates a api" do
+      assert {:ok, %Api{} = api} = Auth.create_api(@valid_attrs)
+      assert api.name == "some name"
+    end
+
+    test "create_api/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Auth.create_api(@invalid_attrs)
+    end
+
+    test "update_api/2 with valid data updates the api" do
+      api = api_fixture()
+      assert {:ok, api} = Auth.update_api(api, @update_attrs)
+      assert %Api{} = api
+      assert api.name == "some updated name"
+    end
+
+    test "update_api/2 with invalid data returns error changeset" do
+      api = api_fixture()
+      assert {:error, %Ecto.Changeset{}} = Auth.update_api(api, @invalid_attrs)
+      assert api == Auth.get_api!(api.id)
+    end
+
+    test "delete_api/1 deletes the api" do
+      api = api_fixture()
+      assert {:ok, %Api{}} = Auth.delete_api(api)
+      assert_raise Ecto.NoResultsError, fn -> Auth.get_api!(api.id) end
+    end
+
+    test "change_api/1 returns a api changeset" do
+      api = api_fixture()
+      assert %Ecto.Changeset{} = Auth.change_api(api)
+    end
+  end
 end

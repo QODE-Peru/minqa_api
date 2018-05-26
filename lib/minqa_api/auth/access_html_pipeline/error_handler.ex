@@ -1,4 +1,4 @@
-defmodule MinqaApi.Auth.AccessPipeline.ErrorHandler do
+defmodule MinqaApi.Auth.AccessHtmlPipeline.ErrorHandler do
   @moduledoc false
   import Plug.Conn
 
