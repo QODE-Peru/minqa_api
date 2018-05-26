@@ -1,8 +1,7 @@
 defmodule MinqaApi.Auth do
   import Ecto.Query, warn: false
 
-  
-
+  alias MinqaApi.Repo
   alias MinqaApi.Auth.Aplicacion
 
   @doc """
@@ -97,5 +96,15 @@ defmodule MinqaApi.Auth do
   """
   def change_aplicacion(%Aplicacion{} = aplicacion) do
     Aplicacion.changeset(aplicacion, %{})
+  end
+
+  def change_register_aplicacion(%User{} = user) do
+    Aplicacion.registration_changeset(user, %{})
+  end
+
+  def aplicacion_register(attrs \\ %{}) do
+    %Aplicacion{}
+    |> Aplicacion.registration_changeset(attrs)
+    |> Repo.insert()
   end
 end
