@@ -107,4 +107,33 @@ defmodule MinqaApi.Auth do
     |> Aplicacion.registration_changeset(attrs)
     |> Repo.insert()
   end
+
+  def authenticate_aplicacion(name, plain_text_password) do
+    query = from a in Aplicacion, where: a.name == ^name
+    Repo.one(query)
+    |> check_password(plain_text_password)
+  end
+
+  defp check_password(nil, _) do
+    Bcrypt.dummy_checkpw()
+    {:error, "Aplicacion o contraseña incorrecto"}
+  end
+
+  defp check_password(aplicacion, plain_text_password) do
+    case Bcrypt.checkpw(plain_text_password, aplicacion.password_hash) do
+      true -> {:ok, aplicacion}
+      false -> {:error, "Aplicacion o contraseña incorrecto"}
+    end
+  end
+
+  def login(conn, aplicacion) do
+    IO.inspect(aplicacion)
+    conn
+    |> Guardian.Plug.sign_in(aplicacion)
+  end
+
+  def logout(conn) do
+    conn
+    |> Guardian.Plug.sign_out()
+  end
 end
