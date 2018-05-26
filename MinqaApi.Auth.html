@@ -1,0 +1,502 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.3">
+    <title>MinqaApi.Auth – minqa_api v0.0.1</title>
+    <link rel="stylesheet" href="dist/app-480ffdc169.css" />
+    
+    <script src="dist/sidebar_items-6adb57dd05.js"></script>
+    
+    
+    
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        minqa_api
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.0.1
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">minqa_api v0.0.1</small>
+        MinqaApi.Auth
+        
+      </h1>
+
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#aplicacion_register/1">aplicacion_register(attrs \\ %{})</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#authenticate_aplicacion/2">authenticate_aplicacion(name, plain_text_password)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#change_aplicacion/1">change_aplicacion(aplicacion)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returns an <code class="inline">%Ecto.Changeset{}</code> for tracking aplicacion changes</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#change_register_aplicacion/1">change_register_aplicacion(user)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#create_aplicacion/1">create_aplicacion(attrs \\ %{})</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Creates a aplicacion</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#delete_aplicacion/1">delete_aplicacion(aplicacion)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Deletes a Aplicacion</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#generate_jwt/1">generate_jwt(aplicacion)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_aplicacion!/1">get_aplicacion!(id)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Gets a single aplicacion</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#list_aplicaciones/0">list_aplicaciones()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Returns the list of aplicaciones</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#login/2">login(conn, aplicacion)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#logout/1">logout(conn)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_aplicacion/2">update_aplicacion(aplicacion, attrs)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Updates a aplicacion</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="aplicacion_register/1">
+  
+  
+    <span id="aplicacion_register/0"></span>
+  
+  <div class="detail-header">
+    <a href="#aplicacion_register/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">aplicacion_register(attrs \\ %{})</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="authenticate_aplicacion/2">
+  
+  
+  <div class="detail-header">
+    <a href="#authenticate_aplicacion/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">authenticate_aplicacion(name, plain_text_password)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="change_aplicacion/1">
+  
+  
+  <div class="detail-header">
+    <a href="#change_aplicacion/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">change_aplicacion(aplicacion)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Returns an <code class="inline">%Ecto.Changeset{}</code> for tracking aplicacion changes.</p>
+<h2 id="change_aplicacion/1-examples" class="section-heading">
+  <a href="#change_aplicacion/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; change_aplicacion(aplicacion)
+%Ecto.Changeset{source: %Aplicacion{}}</code></pre>
+
+  </section>
+</div>
+<div class="detail" id="change_register_aplicacion/1">
+  
+  
+  <div class="detail-header">
+    <a href="#change_register_aplicacion/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">change_register_aplicacion(user)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="create_aplicacion/1">
+  
+  
+    <span id="create_aplicacion/0"></span>
+  
+  <div class="detail-header">
+    <a href="#create_aplicacion/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">create_aplicacion(attrs \\ %{})</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Creates a aplicacion.</p>
+<h2 id="create_aplicacion/1-examples" class="section-heading">
+  <a href="#create_aplicacion/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; create_aplicacion(%{field: value})
+{:ok, %Aplicacion{}}
+
+iex&gt; create_aplicacion(%{field: bad_value})
+{:error, %Ecto.Changeset{}}</code></pre>
+
+  </section>
+</div>
+<div class="detail" id="delete_aplicacion/1">
+  
+  
+  <div class="detail-header">
+    <a href="#delete_aplicacion/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">delete_aplicacion(aplicacion)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Deletes a Aplicacion.</p>
+<h2 id="delete_aplicacion/1-examples" class="section-heading">
+  <a href="#delete_aplicacion/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; delete_aplicacion(aplicacion)
+{:ok, %Aplicacion{}}
+
+iex&gt; delete_aplicacion(aplicacion)
+{:error, %Ecto.Changeset{}}</code></pre>
+
+  </section>
+</div>
+<div class="detail" id="generate_jwt/1">
+  
+  
+  <div class="detail-header">
+    <a href="#generate_jwt/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">generate_jwt(aplicacion)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="get_aplicacion!/1">
+  
+  
+  <div class="detail-header">
+    <a href="#get_aplicacion!/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">get_aplicacion!(id)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Gets a single aplicacion.</p>
+<p>Raises <a href="https://hexdocs.pm/ecto/2.2.10/Ecto.NoResultsError.html"><code class="inline">Ecto.NoResultsError</code></a> if the Aplicacion does not exist.</p>
+<h2 id="get_aplicacion!/1-examples" class="section-heading">
+  <a href="#get_aplicacion!/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; get_aplicacion!(123)
+%Aplicacion{}
+
+iex&gt; get_aplicacion!(456)
+** (Ecto.NoResultsError)</code></pre>
+
+  </section>
+</div>
+<div class="detail" id="list_aplicaciones/0">
+  
+  
+  <div class="detail-header">
+    <a href="#list_aplicaciones/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">list_aplicaciones()</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Returns the list of aplicaciones.</p>
+<h2 id="list_aplicaciones/0-examples" class="section-heading">
+  <a href="#list_aplicaciones/0-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; list_aplicaciones()
+[%Aplicacion{}, ...]</code></pre>
+
+  </section>
+</div>
+<div class="detail" id="login/2">
+  
+  
+  <div class="detail-header">
+    <a href="#login/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">login(conn, aplicacion)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="logout/1">
+  
+  
+  <div class="detail-header">
+    <a href="#logout/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">logout(conn)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="update_aplicacion/2">
+  
+  
+  <div class="detail-header">
+    <a href="#update_aplicacion/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">update_aplicacion(aplicacion, attrs)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Updates a aplicacion.</p>
+<h2 id="update_aplicacion/2-examples" class="section-heading">
+  <a href="#update_aplicacion/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; update_aplicacion(aplicacion, %{field: new_value})
+{:ok, %Aplicacion{}}
+
+iex&gt; update_aplicacion(aplicacion, %{field: bad_value})
+{:error, %Ecto.Changeset{}}</code></pre>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.3),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-9bd040e5e5.js"></script>
+  
+  
+  
+  
+  </body>
+</html>
+
