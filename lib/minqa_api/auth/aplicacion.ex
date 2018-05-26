@@ -12,11 +12,10 @@ defmodule MinqaApi.Auth.Aplicacion do
     timestamps()
   end
 
-  @doc false
-  def changeset(aplicacion, attrs) do
+  def changeset(%Aplicacion{} = aplicacion, attrs) do
     aplicacion
-    |> cast(attrs, [:name, :password_hash])
-    |> validate_required([:name, :password_hash])
+    |> cast(attrs, [:name, :password])
+    |> validate_required([:name, :password])
   end
 
   @doc false

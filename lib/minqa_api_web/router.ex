@@ -52,6 +52,8 @@ defmodule MinqaApiWeb.Router do
     pipe_through [:api, :ensure_api_auth]
 
     get "/prueba", PageController, :api
-    
+
+    post "/account", AccountController, :show
+    resources "/cuentas", CuentaController, except: [:new, :edit]
   end
 end

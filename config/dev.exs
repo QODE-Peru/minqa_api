@@ -7,7 +7,8 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :minqa_api, MinqaApiWeb.Endpoint,
-  http: [port: 4000],
+  http: [ip: {192, 168, 65, 91}, port: 4000],
+  url: [host: "192.168.65.91", port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
