@@ -25,7 +25,7 @@ defmodule MinqaApi.Auth.Aplicacion do
     |> cast(attrs, [:name, :password])
     |> validate_required([:name, :password])
     |> validate_length(:name, min: 3, max: 15)
-    |> validate_length(:password, min: 5, max: 15)
+    |> validate_length(:password, min: 5)
     |> unique_constraint(:name)
     |> put_pass_hash()
   end

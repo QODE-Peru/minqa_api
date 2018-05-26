@@ -98,7 +98,7 @@ defmodule MinqaApi.Auth do
     Aplicacion.changeset(aplicacion, %{})
   end
 
-  def change_register_aplicacion(%User{} = user) do
+  def change_register_aplicacion(%Aplicacion{} = user) do
     Aplicacion.registration_changeset(user, %{})
   end
 
