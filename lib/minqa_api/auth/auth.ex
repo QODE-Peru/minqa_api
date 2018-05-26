@@ -2,7 +2,8 @@ defmodule MinqaApi.Auth do
   import Ecto.Query, warn: false
 
   alias MinqaApi.Repo
-  alias MinqaApi.Auth.Aplicacion
+  alias MinqaApi.Auth.{Aplicacion, Guardian}
+  alias Comeonin.Bcrypt
 
   @doc """
   Returns the list of aplicaciones.
