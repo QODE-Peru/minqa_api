@@ -15,7 +15,7 @@ defmodule MinqaApiWeb.SessionApiController do
     end
   end
 
-  def create(conn, params) do
+  def create(conn, _params) do
     conn
     |> put_status(:not_found)
     |> json(%{error: "bad request"})

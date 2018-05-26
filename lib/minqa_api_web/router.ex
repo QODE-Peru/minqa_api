@@ -13,17 +13,21 @@ defmodule MinqaApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :auth do
+  pipeline :auth_html do
     plug MinqaApi.Auth.AccessHtmlPipeline
   end
 
-  pipeline :ensure_auth do
+  pipeline :ensure_html_auth do
     plug Guardian.Plug.EnsureAuthenticated
+  end
+
+  pipeline :ensure_api_auth do
+    plug MinqaApi.Auth.AccessApiPipeline
   end
 
   # Scope donde uno puede estar logueado o no
   scope "/", MinqaApiWeb do
-    pipe_through [:browser, :auth] # Use the default browser stack
+    pipe_through [:browser, :auth_html] # Use the default browser stack
 
     get "/", PageController, :index
     get "/login", SessionController, :new
@@ -33,14 +37,21 @@ defmodule MinqaApiWeb.Router do
 
   # Scope donde uno tiene que estar logueado
   scope "/", MinqaApiWeb do
-    pipe_through [:browser, :auth, :ensure_auth]
+    pipe_through [:browser, :auth_html, :ensure_html_auth]
   end
 
   # Other scopes may use custom stacks.
   scope "/api", MinqaApiWeb do
     pipe_through :api
 
-    resources "/api", ApiController, except: [:new, :edit]
     post "/token", SessionApiController, :create
+  end
+
+  # Scope API donde uno tiene que estar logueado
+  scope "/api", MinqaApiWeb do
+    pipe_through [:api, :ensure_api_auth]
+
+    get "/prueba", PageController, :api
+    
   end
 end
